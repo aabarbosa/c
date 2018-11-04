@@ -1,50 +1,67 @@
- 30                                             CHAPTER 1 . INTRODUCTION
-
-    An equivalent way to express this rule is to focus on a use of a name x .
-Let Bl , B2 , . . . , Bk be all the blocks that surround this use of x , with Bk the
-smallest, nested within Bk-1 , which is nested within Bk-2, and so on. Search
-for the largest i such that there is a declaration of x belonging to Bi . This use
-of x refers to the declaration in Bi . Alternatively, this use of x is within the
-scope of the declaration in Bi .
-         mainOint {
-             int ba = 1 ,;
-                         l'
-             {
-                    int b = 2 ,-                             B2
-                   {
-                       [, int
-                          couta«= 3a ; « b-,       B3   J
-                   }
-                   {
-                       [, int         '
-                          coutb «= 4-a « b-,       B4   J
-                   }
-                   cout « a « b-,
-             }
-
-         }
-             cout « a « b;
-                     Figure 1. 10: Blocks in a C++ program
+36                                                     CHAPTER 1 . INTRODUCTION
+          int w , x , y , z ,'                          int w , x , y , z ;
+          int i       =
+                   4 ; int j               5 ,'         int i = 3 ; int j        4 ,'
+          {   int j      7 ,'
+                           =
+                                                        {   int i      5 ,'
+              i    6 ,'                                     w     =
+                                                                 i + j;
+              w = i + j;                                }
+          }                                             x   =
+                                                                i + j;
+          x   =
+                  i + j;                                {       int j   6 ',
+                                                                         =
 
 
-Example 1 . 6 : The C++ program in Fig. 1 .10 has four blocks, with several
-definitions of variables a and b. As a memory aid, each declaration initializes
 
-                                               int a =
-its variable to the number of the block to which it belongs.
-     For instance, consider th� declaration            1 in block Bl - Its scope
-is all of Bl , except for those blocks nested ( perhaps deeply ) within Bl that
-have their own declaration of a . B2 , nested immediately within B1 , does not
-have a declaration of a , but B3 does. B4 does not have a declaration of a, so
-block B3 is the only place in the entire program that is outside the scope of the
-declaration of the name a that belongs to B1 . That is, this scope includes B4
-and all of B2 except for the part of B2 that is within B3 . The scopes of all five
-declarations are summarized in Fig. 1 . 1 1 .
-     From another point of view, let u s consider the output statement i n block
-B4 and bind the variables a and b used there to the proper declarations. The
-list of surrounding blocks, in order of increasing size, is B4 , B2 , B1 • Note that
-B3 does not surround the point in question. B4 has a declaration of b, so it
-is to this declaration that this use of b refers, and the value of b printed is 4.
-However, B4 does not have a declaration of a , so we next look at B2 . That
-block does not have a declaration of a either, so we proceed to B1 - Fortunately,
+          {       int i    8 ',                                 i   7;
+                  Y   =
+                      i  + j ;                                  y   i + j;
+          }                                             }
+              =
+         z        i + j;                                z   =
+                                                                i + j;
+
+        ( a) Code for Exercise 1.6. 1                  (b ) Code for Exercise 1 .6.2
+
+                               Figure 1 .13: Block-structured code
+                      {    int w , x , y , z ;         1* Block B 1 * 1
+                           {   int x , z ;             1 * Block B 2 *1
+                               {    int w , x ;        1 * Block B 3 *1 }
+                          }
+                          {        int w , x ;         1* Block B4 *1
+                                   {   int y ,    z;   1* Block B5 *1 }
+                          }
+                      }
+
+                  Figure 1 . 14: Block structured code for Exercise 1 .6.3
+
+Exercise 1 .6.4 : What is printed by the following C code?
+
+       #def ine a (x+ 1 )
+                  =
+       int x    2;
+       void b O { x       a ; printf ( " %d\n " , x) ; }
+                               =
+
+
+
+       void c O { int x        1 ; printf ( " %d\n " ) , a ; }
+                                       =
+
+
+
+       void main e ) { b e ) ; c ( ) ; }
+
+
+1 .7     S ummary of C hapter 1
+
+  .. Language Processors. An integrated software development environment
+     includes many different kinds of language processors such as compilers,
+     interpreters, assemblers, linkers, loaders, debuggers, profilers.
+  .. Compiler Phases. A compiler operates as a sequence of phases, each of
+     which transforms the source program from one intermediate representa­
+     tion to another.
 

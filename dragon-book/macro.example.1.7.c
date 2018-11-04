@@ -4,8 +4,8 @@
 #define sq (HUGE_VAL+1)
 
 int x = 2;
-void b() {int x = 1; printf ("%d\n %f\n", a, sq);} 
-void c() { printf ( "%d\n %f\n", a, sq); }
+void b() {int x = 11; printf ("b %d\n %f\n", a, sq);} 
+void c() {printf ( "c %d\n %f\n", a, sq); }
 void main() { b(); c(); }
 
 

@@ -3,7 +3,7 @@ using namespace std; // io text
  
 
 /*
-There's no guarantee about a declered non-defined 
+There's no guarantee what a declared non-defined 
 variable returns. It addresses anywhere in memory.
 */ 
 main(){//B1
